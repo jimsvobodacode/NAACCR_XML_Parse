@@ -1,0 +1,5 @@
+__pycache__
+data/*
+logs/*
+naaccr_data.db
+naaccr_data.txt
