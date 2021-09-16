@@ -12,7 +12,7 @@
 ## About The Project
 
 
-The NAACCR XML Parser will parse NAACCR data files in the v21 XML data format.  The parsed data is stored into a local sqlite3 database and is also saved as a tab delimited text file.
+The NAACCR XML Parser will parse NAACCR data files in the v21 XML data format.  The parsed data is stored in a local sqlite3 database and is also saved as a tab delimited text file.
 
 
 ### Built With
