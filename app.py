@@ -1,4 +1,4 @@
-import os, logging, pyodbc
+import os, logging
 from utility import Utility
 from handler.xmlLoadHandler import xmlLoadHandler
 from repository import Repository
