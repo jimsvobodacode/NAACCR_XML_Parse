@@ -1,5 +1,5 @@
 __pycache__
-data/*
+data/processed/*
 logs/*
 naaccr_data.db
 naaccr_data.txt
