@@ -17,7 +17,7 @@ class App:
             logging.info('*** Start ***')
             self.Config()
             Repository().Configure()    # create local db
-            xmlLoadHandler().Process()  # read xml files and same them to local db
+            xmlLoadHandler().Process()  # read xml files and save them to local db
             Repository().ExportToTabDelimitedText() # optional
             logging.info('*** Stop ***')
         except:

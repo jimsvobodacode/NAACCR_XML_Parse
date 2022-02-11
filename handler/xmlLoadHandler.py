@@ -75,7 +75,12 @@ class xmlLoadHandler:
         logging.info(f"[number of XML items saved]: {qty}")
 
     def MostRecentTumor(self, conn, tumor):
-        params = (getattr(tumor,"medicalRecordNumber"), getattr(tumor, "tumorRecordNumber"), getattr(tumor, "registryId"), getattr(tumor, "dateCaseReportExported"))
+        # note: expects key fields medicalRecordNumber, tumorRecordNumber, registryId, dateCaseReportExported to exist
+        # if medicalRecordNumber doesn't exist, patientIdNumber will be used instead. if this doesn't exist, empty string will be used. 
+        # if dateCaseReportExported doesn't exist, dateCaseLastChanged will be used instead. if this doesn't exist, empty string will be used.  
+        # you may need to change to the code to accommodate your field names as needed
+        params = (getattr(tumor,"medicalRecordNumber", getattr(tumor,"patientIdNumber", "")), 
+            getattr(tumor, "tumorRecordNumber"), getattr(tumor, "registryId"), getattr(tumor, "dateCaseReportExported", getattr(tumor,"dateCaseLastChanged", "")))
         sql = """select * from NAACCR_DATA 
             where MEDICAL_RECORD_NUMBER_N2300 = ? and TUMOR_RECORD_NUMBER_N60 = ? and REGISTRY_ID_N40 = ?
             and DATE_CASE_REPORT_EXPORT_N2110 > ?"""
@@ -87,7 +92,10 @@ class xmlLoadHandler:
         return False
 
     def DeleteTumor(self, conn, tumor):
-        params = (getattr(tumor,"medicalRecordNumber"), getattr(tumor, "tumorRecordNumber"), getattr(tumor, "registryId"))
+        # note: expects key fields medicalRecordNumber, tumorRecordNumber, registryId to exist
+        # if medicalRecordNumber doesn't exist, patientIdNumber will be used instead. if this doesn't exist, empty string will be used.  
+        # you may need to change to the code to accommodate your field names as needed
+        params = (getattr(tumor,"medicalRecordNumber", getattr(tumor,"patientIdNumber", "")), getattr(tumor, "tumorRecordNumber"), getattr(tumor, "registryId"))
         sql = """delete from NAACCR_DATA 
             where MEDICAL_RECORD_NUMBER_N2300 = ? and TUMOR_RECORD_NUMBER_N60 = ? and REGISTRY_ID_N40 = ?"""
         cmd = conn.cursor()
