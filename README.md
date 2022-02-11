@@ -8,37 +8,11 @@
 </p>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 
-The NAACCR XML Parser will parse NAACCR data files in the v21 XML data format.  The parsed data is stored into a local sqlite3 database and is also saved as a tab delimited text file.
+The NAACCR XML Parser will parse NAACCR data files in the v21 XML data format.  The parsed data is stored in a local sqlite3 database and is also saved as a tab delimited text file.
 
 
 ### Built With
@@ -68,8 +42,8 @@ You may also want to install [DB Browser](https://sqlitebrowser.org/) to view th
    ```
 2. Install pip packages
    ```
-pip install pandas
-	```
+   pip install pandas
+   ```
 
 
 <!-- USAGE EXAMPLES -->
