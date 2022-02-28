@@ -43,13 +43,13 @@ class xmlLoadHandler:
             for tumor in tumors:
                 ti = TumorItem()
                 for k, v in headerInfo.__dict__.items():
-                    setattr(ti, k, v.strip())
+                    setattr(ti, k, v.strip() if v else "")
                 nodes = [x for x in tumor if x.tag == "{http://naaccr.org/naaccrxml}Item"]
                 for node in nodes:
-                    setattr(ti, node.attrib.get("naaccrId"), node.text.strip())
+                    setattr(ti, node.attrib.get("naaccrId"), node.text.strip() if node.text else "")
                 nodes = [x for x in patient if x.tag == "{http://naaccr.org/naaccrxml}Item"]
                 for node in nodes:
-                    setattr(ti, node.attrib.get("naaccrId"), node.text.strip())
+                    setattr(ti, node.attrib.get("naaccrId"), node.text.strip() if node.text else "")
                 self._tumors.append(ti)
 
     def SaveTumors(self):
